@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+		  
+		<package name="tag" extends="struts-default">
+			<action name="tag" class="bs.photoAdmin.tag.action.TagAction">
+				<result name="default">NewFile.jsp</result>
+				<result name="success">index.jsp</result>
+				<result name="newTag">album/newAlbum.jsp</result>
+				
+			</action>
+		</package>
+</struts>

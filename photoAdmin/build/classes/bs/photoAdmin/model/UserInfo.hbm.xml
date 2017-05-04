@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-3-18 15:24:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="bs.photoAdmin.model.UserInfo" table="user_info" catalog="photoAdmin">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="user_name" length="16" not-null="true" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="user_email" />
+        </property>
+        <property name="userPassword" type="string">
+            <column name="user_password" length="32" not-null="true" />
+        </property>
+        <property name="userCreatetime" type="timestamp">
+            <column name="user_createtime" length="19" />
+        </property>
+        <property name="userGender" type="string">
+            <column name="user_gender" length="10" />
+        </property>
+        <property name="userIconid" type="string">
+            <column name="user_iconid" length="45" />
+        </property>
+        <property name="userNickname" type="string">
+            <column name="user_Nickname" length="45" not-null="true" />
+        </property>
+        <property name="userProvince" type="string">
+            <column name="user_province" length="45" />
+        </property>
+        <property name="userPhone" type="string">
+            <column name="user_phone" length="30" />
+        </property>
+        <property name="userCity" type="string">
+            <column name="user_city" length="45" />
+        </property>
+        <set name="commentInfosForCommentToUserId" table="comment_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="comment_to_user_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.CommentInfo" />
+        </set>
+        <set name="usericonInfos" table="usericon_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.UsericonInfo" />
+        </set>
+        <set name="friendInfosForOtheruserId" table="friend_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="otheruser_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.FriendInfo" />
+        </set>
+        <set name="userHasAlbumInfos" table="user_has_album_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="user_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.UserHasAlbumInfo" />
+        </set>
+        <set name="friendInfosForSelfuserId" table="friend_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="selfuser_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.FriendInfo" />
+        </set>
+        <set name="tagInfos" table="tag_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="tag_user" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.TagInfo" />
+        </set>
+        <set name="downloadInfos" table="download_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="download_userid" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.DownloadInfo" />
+        </set>
+        <set name="fgroupInfos" table="fgroup_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="fg_onwer_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.FgroupInfo" />
+        </set>
+        <set name="noticeInfosForUserToUserId" table="notice_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="user_to_user_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.NoticeInfo" />
+        </set>
+        <set name="commentInfosForCommentFromUserid" table="comment_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="comment_from_userid" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.CommentInfo" />
+        </set>
+        <set name="photoInfos" table="photo_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="p_owneruserid" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.PhotoInfo" />
+        </set>
+        <set name="noticeInfosForUserFromUserId" table="notice_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="user_from_user_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.NoticeInfo" />
+        </set>
+        <set name="albumInfos" table="album_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="owneruser_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.AlbumInfo" />
+        </set>
+        <set name="msgInfosForMsgToUserId" table="msg_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="msg_to_user_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.MsgInfo" />
+        </set>
+        <set name="msgInfosForMsgFromUserId" table="msg_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="msg_from_user_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.MsgInfo" />
+        </set>
+    </class>
+</hibernate-mapping>
+

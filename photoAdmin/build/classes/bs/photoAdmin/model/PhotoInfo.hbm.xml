@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-3-18 15:24:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="bs.photoAdmin.model.PhotoInfo" table="photo_info" catalog="photoAdmin">
+        <id name="PId" type="java.lang.Integer">
+            <column name="p_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="albumInfo" class="bs.photoAdmin.model.AlbumInfo" fetch="select">
+            <column name="p_albumid" />
+        </many-to-one>
+        <many-to-one name="userInfo" class="bs.photoAdmin.model.UserInfo" fetch="select">
+            <column name="p_owneruserid" />
+        </many-to-one>
+        <many-to-one name="tagInfo" class="bs.photoAdmin.model.TagInfo" fetch="select">
+            <column name="p_tag_id" />
+        </many-to-one>
+        <property name="PDes" type="string">
+            <column name="p_des" length="200" />
+        </property>
+        <property name="PLoclat" type="java.lang.Float">
+            <column name="p_loclat" precision="10" scale="6" />
+        </property>
+        <property name="PLoclng" type="java.lang.Float">
+            <column name="p_loclng" precision="10" scale="6" />
+        </property>
+        <property name="PCreatetime" type="timestamp">
+            <column name="p_createtime" length="19" />
+        </property>
+        <property name="PPath" type="string">
+            <column name="p_path" />
+        </property>
+        <property name="PDownnum" type="java.lang.Integer">
+            <column name="p_downnum" />
+        </property>
+        <property name="PLikenum" type="java.lang.Integer">
+            <column name="p_likenum" />
+        </property>
+        <property name="PIfmodify" type="java.lang.Boolean">
+            <column name="p_ifmodify" />
+        </property>
+	<property name="PMainc1" type="java.lang.Integer">
+            <column name="p_mainc1" />
+        </property>
+        <property name="PMainc1p" type="java.lang.Float">
+            <column name="p_mainc1p" precision="12" scale="0" />
+        </property>
+        <property name="PMainc2" type="java.lang.Integer">
+            <column name="p_mainc2" />
+        </property>
+        <property name="PMainc2p" type="java.lang.Float">
+            <column name="p_mainc2p" precision="12" scale="0" />
+        </property>
+        <set name="noticeInfos" table="notice_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="notice_photo_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.NoticeInfo" />
+        </set>
+        <set name="commentInfos" table="comment_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="comment_pid" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.CommentInfo" />
+        </set>
+        <set name="downloadInfos" table="download_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="download_pid" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.DownloadInfo" />
+        </set>
+    </class>
+</hibernate-mapping>

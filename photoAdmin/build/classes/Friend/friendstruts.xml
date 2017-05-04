@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+		  
+		<package name="friend" extends="struts-default">
+			<action name="friend" class="bs.photoAdmin.friend.action.FriendAction">
+				<result name="default">NewFile.jsp</result>
+				<result name="success">friend/sendSuccess.jsp</result>
+				<result name="showAllFriends">friend/friend_index.jsp</result>
+				<result name="showAllGroups">friend/friendGroup.jsp</result>
+				<result name="showGroupFriends">friend/friendByGroup.jsp</result>
+				<result name="verifyMsg">friend/verifyMsg.jsp</result>
+				<result name="chooseFgroup">friend/chooseGroup.jsp</result>
+				<result name="showShareFriends">album/shareAlbum.jsp</result>
+				<result name="modifySuccess">friend/changModifyS.jsp</result>
+			</action>
+		</package>
+</struts>

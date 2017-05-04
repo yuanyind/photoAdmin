@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+		 <package name="icon" extends="struts-default">
+	        <action name="icon" class="bs.photoAdmin.user.action.UserIconAction" method="execute">
+	            <!-- 要创建/image文件夹，否则会报找不到文件 -->
+	            <param name="savePath">/icon</param>
+	            <result name="success">../user/successRegister.jsp</result>
+	            <result name="default">../NewFile.jsp</result>
+	        </action>
+    	</package>
+    	 <package name="iconModify" extends="struts-default">
+	        <action name="iconModify" class="bs.photoAdmin.user.action.UserIconModifyAction" method="execute">
+	            <!-- 要创建/image文件夹，否则会报找不到文件 -->
+	            <param name="savePath">/icon</param>
+	            <result name="success">../user/loginSuccess.jsp</result>
+	            <result name="default">../NewFile.jsp</result>
+	        </action>
+    	</package>
+		  
+		  
+		<package name="user" extends="struts-default">
+			<action name="user" class="bs.photoAdmin.user.action.UserAction">
+				<result name="default">NewFile.jsp</result>
+				<result name="success">index.jsp</result>
+				<result name="successCheck">user/loginSuccess.jsp</result>
+				<result name="successRegister">user/upIcon.jsp</result>
+				<result name="userModify">user/userModify.jsp</result>
+				<result name="logoff">login.jsp</result>
+				<result name="logout">user/logoutSuccess.jsp</result>
+				<result name="modify">index.jsp</result>
+				<result name="userInfo">user/userInfo.jsp</result>
+				<result name="userList">user/userList.jsp</result>
+				<result name="photoList">photo/searchPhotoList.jsp</result>
+				<result name="newUpdate">newUpdate.jsp</result>
+			</action>
+		</package>
+</struts>

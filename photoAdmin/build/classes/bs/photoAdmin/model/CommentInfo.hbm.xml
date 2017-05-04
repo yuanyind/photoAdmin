@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-3-18 15:24:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="bs.photoAdmin.model.CommentInfo" table="comment_info" catalog="photoAdmin">
+        <id name="commentId" type="java.lang.Integer">
+            <column name="comment_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userInfoByCommentFromUserid" class="bs.photoAdmin.model.UserInfo" fetch="select">
+            <column name="comment_from_userid" />
+        </many-to-one>
+        <many-to-one name="photoInfo" class="bs.photoAdmin.model.PhotoInfo" fetch="select">
+            <column name="comment_pid" />
+        </many-to-one>
+        <many-to-one name="userInfoByCommentToUserId" class="bs.photoAdmin.model.UserInfo" fetch="select">
+            <column name="comment_to_user_id" />
+        </many-to-one>
+        <property name="commentCreateTime" type="timestamp">
+            <column name="comment_createTime" length="19" />
+        </property>
+        <property name="commentContent" type="string">
+            <column name="comment_content" length="200" />
+        </property>
+    </class>
+</hibernate-mapping>

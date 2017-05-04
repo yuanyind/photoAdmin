@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+		  
+		<package name="msg" extends="struts-default">
+			<action name="msg" class="bs.photoAdmin.msg.action.MsgAction">
+				<result name="default">NewFile.jsp</result>
+				<result name="success">msg/verifySuccess.jsp</result>
+				<result name="showRecvMsgs">msg/msgIndex.jsp</result>
+				<result name="showNewMsg">msg/newMsg.jsp</result>
+			</action>
+		</package>
+</struts>

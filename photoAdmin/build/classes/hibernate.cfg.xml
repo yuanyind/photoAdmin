@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">1127</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/photoAdmin</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        
+        <mapping resource="bs/photoAdmin/model/AlbumInfo.hbm.xml" />
+ 		<mapping resource="bs/photoAdmin/model/CommentInfo.hbm.xml" />
+	    <mapping resource="bs/photoAdmin/model/DownloadInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/FgroupInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/FriendInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/PhotoInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/UserHasAlbumInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/UsericonInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/UserInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/TagInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/MsgInfo.hbm.xml" />
+	   <mapping resource="bs/photoAdmin/model/NoticeInfo.hbm.xml" />
+        
+        
+    </session-factory>
+</hibernate-configuration>

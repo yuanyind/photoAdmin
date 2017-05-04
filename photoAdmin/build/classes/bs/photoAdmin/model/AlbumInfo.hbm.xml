@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-3-18 15:24:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="bs.photoAdmin.model.AlbumInfo" table="album_info" catalog="photoAdmin">
+        <id name="AId" type="java.lang.Integer">
+            <column name="a_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userInfo" class="bs.photoAdmin.model.UserInfo" fetch="select" lazy="false">
+            <column name="owneruser_id" />
+        </many-to-one>
+        <many-to-one name="tagInfo" class="bs.photoAdmin.model.TagInfo" fetch="select" lazy="false">
+            <column name="album_tag_id" />
+        </many-to-one>
+        <property name="ADes" type="string">
+            <column name="a_des" />
+        </property>
+        <property name="ACreatetime" type="timestamp">
+            <column name="a_createtime" length="19" />
+        </property>
+        <property name="AName" type="string">
+            <column name="a_name" length="45" />
+        </property>
+        <property name="albumIfsee" type="java.lang.Boolean">
+            <column name="album_ifsee" />
+        </property>
+        <property name="ANumber" type="java.lang.Integer">
+            <column name="a_number" />
+        </property>
+        <set name="photoInfos" table="photo_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="p_albumid" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.PhotoInfo" />
+        </set>
+        <set name="userHasAlbumInfos" table="user_has_album_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="a_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.UserHasAlbumInfo" />
+        </set>
+    </class>
+</hibernate-mapping>

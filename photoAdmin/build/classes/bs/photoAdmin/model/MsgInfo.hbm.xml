@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-3-18 15:24:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="bs.photoAdmin.model.MsgInfo" table="msg_info" catalog="photoAdmin">
+        <id name="msgId" type="java.lang.Integer">
+            <column name="msg_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userInfoByMsgToUserId" class="bs.photoAdmin.model.UserInfo" fetch="select">
+            <column name="msg_to_user_id" />
+        </many-to-one>
+        <many-to-one name="userInfoByMsgFromUserId" class="bs.photoAdmin.model.UserInfo" fetch="select">
+            <column name="msg_from_user_id" />
+        </many-to-one>
+        <property name="msgVerify" type="string">
+            <column name="msg_verify" length="100" />
+        </property>
+        <property name="msgCreatetime" type="timestamp">
+            <column name="msg_createtime" length="19" />
+        </property>
+        <property name="msgFlag" type="java.lang.Boolean">
+            <column name="msg_flag" />
+        </property>
+    </class>
+</hibernate-mapping>

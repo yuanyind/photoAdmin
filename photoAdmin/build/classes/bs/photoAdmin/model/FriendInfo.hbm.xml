@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-3-18 15:24:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="bs.photoAdmin.model.FriendInfo" table="friend_info" catalog="photoAdmin">
+        <id name="FId" type="java.lang.Integer">
+            <column name="f_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userInfoBySelfuserId" class="bs.photoAdmin.model.UserInfo" fetch="select"  lazy="false">
+            <column name="selfuser_id" />
+        </many-to-one>
+        <many-to-one name="fgroupInfo" class="bs.photoAdmin.model.FgroupInfo" fetch="select"  lazy="false">
+            <column name="fg_id" />
+        </many-to-one>
+        <many-to-one name="userInfoByOtheruserId" class="bs.photoAdmin.model.UserInfo" fetch="select"  lazy="false">
+            <column name="otheruser_id" />
+        </many-to-one>
+        <property name="fgIsPass" type="java.lang.Boolean">
+            <column name="fg_is_pass" />
+        </property>
+    </class>
+</hibernate-mapping>

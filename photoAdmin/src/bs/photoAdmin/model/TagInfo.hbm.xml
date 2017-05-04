@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2015-3-18 15:24:14 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="bs.photoAdmin.model.TagInfo" table="tag_info" catalog="photoAdmin">
+        <id name="tagId" type="java.lang.Integer">
+            <column name="tag_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="userInfo" class="bs.photoAdmin.model.UserInfo" fetch="select">
+            <column name="tag_user" />
+        </many-to-one>
+        <property name="tagName" type="string">
+            <column name="tag_name" length="45" />
+        </property>
+        <set name="albumInfos" table="album_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="album_tag_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.AlbumInfo" />
+        </set>
+        <set name="photoInfos" table="photo_info" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="p_tag_id" />
+            </key>
+            <one-to-many class="bs.photoAdmin.model.PhotoInfo" />
+        </set>
+    </class>
+</hibernate-mapping>

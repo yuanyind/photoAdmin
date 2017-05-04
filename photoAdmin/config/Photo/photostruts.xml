@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts> 
+		
+    <package name="upload" extends="struts-default">
+        <action name="upload" class="bs.photoAdmin.photo.action.UploadPhotoAction" method="execute">
+            <!-- 要创建/image文件夹，否则会报找不到文件 -->
+            <param name="savePath">/image</param>
+            <result name="success">uploadSuccess.jsp</result>
+            <result name="default">../NewFile.jsp</result>
+        </action>
+    </package>
+    <package name="photo" extends="struts-default">
+        <action name="photo" class="bs.photoAdmin.photo.action.PhotoAction">
+            <result name="success">success.jsp</result>
+            <result name="default">NewFile.jsp</result>
+            <result name="uploadPhoto">photo/upPhoto.jsp</result>
+            <result name="showPhotosByAlbum">photo/showPhoto.jsp</result>
+            <result name="showPhotoInfo">photo/photoInfo.jsp</result>
+            <result name="changeAlbum">photo/chooseAlbum.jsp</result>
+            <result name="changeTag">photo/chooseTag.jsp</result>
+            <result name="addTag">tag/newTag2.jsp</result>
+            <result name="newTag2">photo/chooseTag.jsp</result>
+            <result name="photoList">photo/searchPhotoList.jsp</result>
+            <result name="photoByC">photo/searchPhotoByC.jsp</result>
+        </action>
+    </package>
+    <package name="download" extends="struts-default">
+        <action name="download" class="bs.photoAdmin.photo.action.DownloadPhotoAction">
+            <result name="success">index.jsp</result>
+            <result name="nodata">NewFile.jsp</result>
+            
+        </action>
+    </package>
+    
+    
+      
+  
+		
+</struts>
